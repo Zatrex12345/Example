@@ -4,6 +4,7 @@ import co.aikar.commands.BukkitCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.BukkitCommandManager;
 
+import me.zatrex.exampleplugin.listeners.PlayerJoinListener;
 import me.zatrex.exampleplugin.commands.BrodcastCommand;
 import me.zatrex.exampleplugin.commands.FlyCommand;
 
@@ -26,6 +27,9 @@ public final class ExamplePlugin extends JavaPlugin {
 
 	// config
 	saveDefaultConfig();
+
+	// load listeners
+	getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 
         // load comands
 	commandLoad();
