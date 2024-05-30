@@ -4,6 +4,7 @@ import co.aikar.commands.BukkitCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.BukkitCommandManager;
 
+import me.zatrex.exampleplugin.commands.BrodcastCommand;
 import me.zatrex.exampleplugin.commands.FlyCommand;
 
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,20 +18,29 @@ public final class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-	instance = this;
 	getLogger().info("Loading Example plugin.");
-	loadCommandManager();
+	// set instance
+	instance = this;
+
+	getLogger().info("Loading Example plugin.");
+
+	// config
+	saveDefaultConfig();
+
+        // load comands
+	commandLoad();
+
 	getLogger().info("Loaded Example plugin!");
     }
 
-    private void loadCommandManager() {
+    private void commandLoad() {
         commandManager = new BukkitCommandManager(this);
         commands();
     }
 
     private void commands() {
         Arrays.asList(
+		        new BrodcastCommand(),
 		        new FlyCommand()
         ).forEach(command -> commandManager.registerCommand(command));
     }

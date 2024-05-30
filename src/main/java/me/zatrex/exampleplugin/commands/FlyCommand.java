@@ -25,8 +25,6 @@ public class FlyCommand extends BaseCommand {
 				player.setAllowFlight(true);
 				player.setFlying(true);
 				player.sendMessage(CC.GREEN + "Fly has been enabled.");
-			}
 		}
 	}
-
-//}
+}
