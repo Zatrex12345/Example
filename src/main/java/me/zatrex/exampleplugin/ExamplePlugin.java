@@ -5,6 +5,7 @@ import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.BukkitCommandManager;
 
 import me.zatrex.exampleplugin.listeners.PlayerJoinListener;
+import me.zatrex.exampleplugin.listeners.PlayerDeathListener;
 import me.zatrex.exampleplugin.commands.BrodcastCommand;
 import me.zatrex.exampleplugin.commands.FlyCommand;
 
@@ -15,7 +16,7 @@ import java.util.Arrays;
 public final class ExamplePlugin extends JavaPlugin {
 
     public static ExamplePlugin instance;
-    private BukkitCommandManager commandManager;
+	private BukkitCommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -30,6 +31,7 @@ public final class ExamplePlugin extends JavaPlugin {
 
 	// load listeners
 	getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+	getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
 
         // load comands
 	commandLoad();
