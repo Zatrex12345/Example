@@ -18,18 +18,18 @@ public final class ExamplePlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-		instance = this;
-		getLogger().info("Loading Example plugin.");
-		loadCommandManager();
-		getLogger().info("Loaded Example plugin!");
+	instance = this;
+	getLogger().info("Loading Example plugin.");
+	loadCommandManager();
+	getLogger().info("Loaded Example plugin!");
     }
 
-	private void loadCommandManager() {
+    private void loadCommandManager() {
         commandManager = new BukkitCommandManager(this);
         commands();
     }
 
-	private void commands() {
+    private void commands() {
         Arrays.asList(
 		        new FlyCommand()
         ).forEach(command -> commandManager.registerCommand(command));
@@ -38,10 +38,10 @@ public final class ExamplePlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-		getLogger().info("Disabled Example plugin!");
+	getLogger().info("Disabled Example plugin!");
     }
 
-	public static ExamplePlugin get() {
-		return instance;
-	}
+     public static ExamplePlugin get() {
+	return instance;
+     }
 }
