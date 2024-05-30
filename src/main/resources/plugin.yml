@@ -1,0 +1,4 @@
+name: ExamplePlugin
+version: '${project.version}'
+main: me.zatrex.exampleplugin.ExamplePlugin
+api-version: 1.20
