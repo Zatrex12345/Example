@@ -13,7 +13,12 @@ public class PlayerDeathListener implements Listener  {
 	public void onPlayerDeathEvent(PlayerDeathEvent event) {
 	  Player player = event.getEntity();
 	  Player killer = player.getKiller();
-	  player.sendMessage(CC.translate("&c&lYOU DIED"));
-	  event.setDeathMessage(CC.translate("&b&l" + player.getName() + " &fhas been killed by &b&l" + killer.getName()));
+	  if (killer != null) {
+	     player.sendMessage(CC.translate("&c&lYOU DIED"));
+	     event.setDeathMessage(CC.translate("&b&l" + player.getName() + " &fhas been killed by &b&l" + killer.getName()));
+	  } else {
+            // if the player died from other stuffs like monsters or void
+            event.setDeathMessage(CC.translate("&b&l" + player.getName() + " &fdied"));
+	  }
     }
 }
