@@ -15,7 +15,7 @@ import java.util.Arrays;
 public final class ExamplePlugin extends JavaPlugin {
 
     public static ExamplePlugin instance;
-	private BukkitCommandManager commandManager;
+    private BukkitCommandManager commandManager;
 
     @Override
     public void onEnable() {
