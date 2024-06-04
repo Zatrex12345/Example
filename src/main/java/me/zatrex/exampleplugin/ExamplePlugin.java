@@ -1,8 +1,8 @@
 package me.zatrex.exampleplugin;
 
-import co.aikar.commands.BukkitCommandCompletionContext;
+import co.aikar.commands.PaperCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
-import co.aikar.commands.BukkitCommandManager;
+import co.aikar.commands.PaperCommandManager;
 
 import me.zatrex.exampleplugin.listeners.PlayerJoinListener;
 import me.zatrex.exampleplugin.listeners.PlayerDeathListener;
@@ -16,7 +16,7 @@ import java.util.Arrays;
 public final class ExamplePlugin extends JavaPlugin {
 
     public static ExamplePlugin instance;
-    private BukkitCommandManager commandManager;
+    private PaperCommandManager commandManager;
 
     @Override
     public void onEnable() {
@@ -40,7 +40,7 @@ public final class ExamplePlugin extends JavaPlugin {
     }
 
     private void commandLoad() {
-        commandManager = new BukkitCommandManager(this);
+        commandManager = new PaperCommandManager(this);
         commands();
     }
 
