@@ -1,6 +1,7 @@
 package me.zatrex.exampleplugin.listeners;
 
 import me.zatrex.exampleplugin.utils.CC;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
