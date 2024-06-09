@@ -5,6 +5,7 @@ import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.PaperCommandManager;
 
 import me.zatrex.exampleplugin.listeners.PlayerJoinListener;
+import me.zatrex.exampleplugin.listeners.PlayerQuitListener;
 import me.zatrex.exampleplugin.listeners.PlayerDeathListener;
 import me.zatrex.exampleplugin.commands.BrodcastCommand;
 import me.zatrex.exampleplugin.commands.FlyCommand;
@@ -31,6 +32,7 @@ public final class ExamplePlugin extends JavaPlugin {
 
 	// load listeners
 	getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+	getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 	getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
 
         // load comands
