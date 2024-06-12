@@ -1,6 +1,6 @@
 package me.zatrex.exampleplugin;
 
-import co.aikar.commands.PaperCommandCompletionContext;
+import co.aikar.commands.BukkitCommandCompletionContext;
 import co.aikar.commands.CommandCompletions;
 import co.aikar.commands.PaperCommandManager;
 
@@ -22,23 +22,18 @@ public final class ExamplePlugin extends JavaPlugin {
     @Override
     public void onEnable() {
 	getLogger().info("Loading Example plugin.");
-	// set instance
 	instance = this;
-
-	getLogger().info("Loading Example plugin.");
-
-	// config
 	saveDefaultConfig();
-
-	// load listeners
-	getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
-	getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-	getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
-
-        // load comands
+        listenersLoad();
 	commandLoad();
 
 	getLogger().info("Loaded Example plugin!");
+    }
+
+    private void listenersLoad() {
+        getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(), this);
     }
 
     private void commandLoad() {
@@ -56,7 +51,7 @@ public final class ExamplePlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-	getLogger().info("Disabled Example plugin!");
+        getLogger().info("Disabled Example plugin!");
     }
 
      public static ExamplePlugin get() {
